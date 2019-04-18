@@ -2,6 +2,9 @@
 
 namespace Slg;
 
+$__global_config_var_ref = null;
+$__global_log_stream = array();
+
 /**
  * @author Ammar Faizi <ammarfaizi2@gmail.com> https://www.facebook.com/ammarfaizi2
  * @license MIT
@@ -26,14 +29,23 @@ final class Daemon
 			exit(1);
 		}
 
-		$this->initConfig();
+		if (!function_exists("shmop_open")) {
+			printf("shmop extension required!\n");
+			exit(1);
+		}
+
+		slg_log("Initializing config...");
+		$this->cfg = new Config;
+
+		global $__global_config_var_ref;
+		$__global_config_var_ref = &$this->cfg;
 	}
 
 	/**
 	 * @return void
 	 */
-	private function initConfig()
+	public function run()
 	{
-		$this->cfg = new Config;
+
 	}
 }
