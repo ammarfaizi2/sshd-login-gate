@@ -4,4 +4,5 @@
 require __DIR__."/config.php";
 require __DIR__."/src/autoload.php";
 
-(new SshdLoginGate)->run();
+$slg = new \Slg\Daemon;
+$slg->run();
