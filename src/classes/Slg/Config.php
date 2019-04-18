@@ -17,25 +17,25 @@ final class Config
 	 */
 	public function __construct()
 	{
-		$c = &$_GLOBALS["SSHD_LOGIN_GATE_CONFIG"];
+		$c = &$GLOBALS["SSHD_LOGIN_GATE_CONFIG"];
 
 		if (!isset($c)) {
-			slg_log("SSHD_LOGIN_GATE_CONFIG is not defined!\n");
+			slg_log("SSHD_LOGIN_GATE_CONFIG is not defined!");
 			exit(1);
 		}
 
 		if (!isset($c["log_dir"])) {
-			slg_log("log_dir is not defined!\n");
+			slg_log("log_dir is not defined!");
 			exit(1);
 		}
 
 		if (!isset($c["monitor_bin"])) {
-			slg_log("monitor_bin is not defined!\n");
+			slg_log("monitor_bin is not defined!");
 			exit(1);
 		}
 
 		if (!isset($c["whois_bin"])) {
-			slg_log("whois_bin is not defined!\n");
+			slg_log("whois_bin is not defined!");
 			exit(1);
 		}
 	}
@@ -47,9 +47,9 @@ final class Config
 	 */
 	public function &__get($key)
 	{
-		if (isset($_GLOBALS["SSHD_LOGIN_GATE_CONFIG"][$key])) {
-			return $_GLOBALS["SSHD_LOGIN_GATE_CONFIG"][$key];
+		if (isset($GLOBALS["SSHD_LOGIN_GATE_CONFIG"][$key])) {
+			return $GLOBALS["SSHD_LOGIN_GATE_CONFIG"][$key];
 		}
-		throw new Exception("{$key} is not defined!\n");
+		throw new Exception("{$key} is not defined!");
 	}
 }

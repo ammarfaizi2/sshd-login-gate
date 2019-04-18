@@ -4,7 +4,7 @@ if (!defined("__INIT_SSHD_LOGIN_GATE")):
 
 	define("__INIT_SSHD_LOGIN_GATE", true);
 
-	if (!isset($_GLOBALS["SSHD_LOGIN_GATE_CONFIG"])) {
+	if (!isset($GLOBALS["SSHD_LOGIN_GATE_CONFIG"])) {
 		printf("SSHD_LOGIN_GATE_CONFIG is not defined!\n");
 		exit(1);
 	}
