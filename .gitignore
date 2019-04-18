@@ -4,3 +4,4 @@
 *.tmp
 *.lock
 /.phpintel/
+/config.php
