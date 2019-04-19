@@ -12,5 +12,5 @@ Restart=on-failure
 
 [Install]
 WantedBy=multi-user.target[Unit]
-Description=nhentai Page Fixer Daemon
+Description=SSHD Login Gate
 After=network.target
