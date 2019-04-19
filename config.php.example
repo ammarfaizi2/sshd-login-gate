@@ -1,0 +1,33 @@
+<?php
+
+$GLOBALS["SSHD_LOGIN_GATE_CONFIG"] = array(
+	"log" => array(
+		"php://stdout",
+		"/var/log/slg/slg.log"
+	),
+	"monitor_bin" => "/bin/journalctl",
+	"whois_bin" => "/usr/bin/whois",
+
+	"login_notification" => array(
+		"telegram" => array(
+			"enabled" => true,
+			"bot_token" => "{{bot_token}}",
+			"chat_id" => "{{chat_id}}",
+			"format" => &$telegramMsgFormat
+		)
+	)
+
+);
+
+is_dir("/var/log/slg/") or mkdir("/var/log/slg/");
+$telegramMsgFormat = 
+"<b>SSHD Login Gate Alert!</b>
+
+<b>IP Address:</b> <code>{ip}</code>
+<b>Source Port:</b> <code>{source_port}</code>
+<b>Username:</b> <code>{username}</code>
+<b>Auth Method:</b> <code>{auth_method}</code>
+<b>Time:</b> <code>{time}</code>
+
+<b>WHOIS IP Result:</b>
+{whois_ip}";
