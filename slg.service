@@ -11,6 +11,8 @@ Restart=on-failure
 # Other Restart options: or always, on-abort, etc
 
 [Install]
-WantedBy=multi-user.target[Unit]
+WantedBy=multi-user.target
+
+[Unit]
 Description=SSHD Login Gate
 After=network.target
