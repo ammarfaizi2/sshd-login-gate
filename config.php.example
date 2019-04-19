@@ -11,8 +11,8 @@ $GLOBALS["SSHD_LOGIN_GATE_CONFIG"] = array(
 	"login_notification" => array(
 		"telegram" => array(
 			"enabled" => true,
-			"bot_token" => "...",
-			"chat_id" => "...",
+			"bot_token" => "{{bot_token}}",
+			"chat_id" => "{{chat_id}}",
 			"format" => &$telegramMsgFormat
 		)
 	)
