@@ -6,5 +6,5 @@ if (trim(shell_exec("whoami")) !== "root") {
 }
 
 print shell_exec("/bin/cp -rfv ".escapeshellarg(__DIR__)." /opt/slg");
-print shell_exec("/bin/ln -sfv /opt/slg/slg.service /et/systemd/system");
+print shell_exec("/bin/ln -sfv /opt/slg/slg.service /etc/systemd/system");
 print "\nPlease run `systemctl start slg` to start the service.\n";
