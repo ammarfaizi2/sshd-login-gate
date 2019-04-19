@@ -1,5 +1,5 @@
 # SSHD Login Gate
-SSHD Login Gate is a daemon that sends you a notification to telegram when someone is logged in to your server through SSH.
+SSHD Login Gate is a daemon that sends a notification to telegram when someone logged in to your server through SSH.
 
 # Installation
 ```sh
