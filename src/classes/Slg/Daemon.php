@@ -132,7 +132,6 @@ abort_all:
 	{
 		if (!pcntl_fork()) {
 			cli_set_process_title("slg: telegram-notifier");
-			$ipAddress = "36.81.7.47";
 			slg_log("Sending notification to telegram...");
 			$r1 = array("{ip}", "{source_port}", "{username}", "{auth_method}", "{time}", "{pid}", "{whois_ip}");
 			$r2 = array($ipAddress, $sourcePort, $username, $authMethod, date("Y-m-d H:i:s"), $pid, $this->whoisIp($ipAddress));
