@@ -11,6 +11,7 @@ sudo php install.php
 
 # Enter telegram chat_id
 
+sudo systemctl enable slg
 sudo systemctl start slg
 ```
 

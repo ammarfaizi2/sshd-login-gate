@@ -18,7 +18,7 @@ $config = str_replace(
 );
 
 print shell_exec("/bin/cp -rfv ".escapeshellarg(__DIR__)." /opt/slg");
-print shell_exec("/bin/ln -sfv /opt/slg/slg.service /etc/systemd/system");
+print shell_exec("/bin/cp -fv /opt/slg/slg.service /etc/systemd/system");
 file_put_contents("/opt/slg/config.php", $config);
 print "\n\nPlease run `sudo systemctl start slg` to start the service.\n";
 print "\n\nYou can edit the config at /opt/slg/config.php\n\n";
