@@ -27,7 +27,7 @@ final class Daemon
 	 */
 	public function __construct()
 	{
-		cli_set_process_title("slg: master");
+		cli_set_process_title("slg: master-daemon");
 
 		$this->cfg = new Config;
 		slg_log("Checking required extensions...");
@@ -168,11 +168,14 @@ abort_all:
 		$a = shell_exec("{$this->cfg->whois_bin} {$ipAddress} 2>&1");
 		$str = "";
 		preg_match("/inetnum: .+/i", $a, $m) and $str .= trim($m[0])."\n";
+		preg_match("/cidr: .+/i", $a, $m) and $str .= trim($m[0])."\n";
 		preg_match("/netname: .+/i", $a, $m) and $str .= trim($m[0])."\n";
 		preg_match("/country: .+/i", $a, $m) and $str .= trim($m[0])."\n";
 		if (preg_match("/(descr: .+)\n\w+\:/Usi", $a, $m)) {
 			$str .= $m[1];
 		}
+		preg_match("/orgname: .+/i", $a, $m) and $str .= trim($m[0])."\n";
+		preg_match("/address: .+/i", $a, $m) and $str .= trim($m[0])."\n";
 		return "<pre>".htmlspecialchars($str)."</pre>";
 	}
 }

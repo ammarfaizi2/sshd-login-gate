@@ -1,0 +1,16 @@
+[Unit]
+Description=SSHD Login Gate
+After=network.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/opt/slg/
+ExecStart=/usr/bin/php /opt/slg/slg.php
+Restart=on-failure
+# Other Restart options: or always, on-abort, etc
+
+[Install]
+WantedBy=multi-user.target[Unit]
+Description=nhentai Page Fixer Daemon
+After=network.target
