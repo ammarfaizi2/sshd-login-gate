@@ -171,9 +171,7 @@ abort_all:
 		preg_match("/cidr: .+/i", $a, $m) and $str .= trim($m[0])."\n";
 		preg_match("/netname: .+/i", $a, $m) and $str .= trim($m[0])."\n";
 		preg_match("/country: .+/i", $a, $m) and $str .= trim($m[0])."\n";
-		if (preg_match("/(descr: .+)\n\w+\:/Usi", $a, $m)) {
-			$str .= $m[1]."\n";
-		}
+		preg_match("/(descr: .+)\n\w+\:/Usi", $a, $m) and $str .= $m[1]."\n";
 		preg_match("/orgname: .+/i", $a, $m) and $str .= trim($m[0])."\n";
 		preg_match("/address: .+/i", $a, $m) and $str .= trim($m[0])."\n";
 		return "<pre>".htmlspecialchars($str)."</pre>";
